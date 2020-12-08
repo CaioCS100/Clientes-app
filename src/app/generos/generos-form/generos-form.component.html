@@ -1,0 +1,15 @@
+<h1 class="mt-4">Gênero</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cadastro</li>
+</ol>
+
+<form #generoForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="inputDescricao">Descrição</label>
+        <input type="text" class="form-control" name="descricao" id="inputDescricao" 
+            [(ngModel)]="genero.descricao">
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
