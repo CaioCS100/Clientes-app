@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Genero } from '../../models/genero';
+import { GeneroService } from '../../services/genero/genero.service';
 
 @Component({
   selector: 'app-generos-form',
@@ -10,17 +11,24 @@ export class GenerosFormComponent implements OnInit {
 
   genero: Genero;
 
-  constructor() { 
+  constructor(private generoService: GeneroService) { 
     this.genero = new Genero;
   }
 
   ngOnInit(): void {
-    this.genero.descricao = 'alguma coisa bem doida'
   }
 
-  onSubmit() {
-    console.log(this.genero);
-    
+  salvar() {
+    let generoSalvo: Genero = new Genero();
+
+    this.generoService
+        .salvar(this.genero)
+        .subscribe(response => {
+          console.log(response);
+          generoSalvo = response;
+        }, errosResponse => {
+          console.log(errosResponse);
+        });    
   }
 
 }

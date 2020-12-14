@@ -3,13 +3,12 @@
     <li class="breadcrumb-item active">Cadastro</li>
 </ol>
 
-<form #generoForm="ngForm" (ngSubmit)="onSubmit()">
+<form #generoForm="ngForm" (ngSubmit)="salvar()">
     <div class="form-group">
         <label for="inputDescricao">Descrição</label>
         <input type="text" class="form-control" name="descricao" id="inputDescricao" 
             [(ngModel)]="genero.descricao">
     </div>
-    
-    
-    <button type="submit" class="btn btn-primary">Sign in</button>
+
+    <button title="submit" class="btn btn-primary btn-espacamento"><i class="fa fa-save"></i> Salvar</button>
 </form>

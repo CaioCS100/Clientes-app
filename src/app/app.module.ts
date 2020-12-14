@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { TemplateModule } from './template/template.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+
+import { TemplateModule } from './template/template.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ClientesModule } from './clientes/clientes.module';
 import { GenerosModule } from './generos/generos.module';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { GenerosModule } from './generos/generos.module';
     AppRoutingModule,
     TemplateModule,
     ClientesModule,
-    GenerosModule
+    GenerosModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10212,3 +10212,11 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+
+.centralizado {
+  text-align: center;
+}
+
+.btn-espacamento {
+  padding: 10px 16px;
+}
