@@ -1,0 +1,12 @@
+@keyframes hide {
+    from { opacity: 1 }
+    to   { opacity: 0 }
+  }
+  
+.temporario{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    z-index: 10;
+    animation: hide 2s 2s forwards;
+}

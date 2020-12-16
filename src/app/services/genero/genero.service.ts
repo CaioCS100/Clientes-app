@@ -8,7 +8,7 @@ import { Genero } from '../../models/genero';
 })
 export class GeneroService {
 
-  apiUrl: string = 'http://localhost:8080/gerenciarhobbies_war_exploded/api/generos';
+  apiUrl: string = 'http://localhost:8080/gerenciar_hobbies_api_war_exploded//api/generos';
 
   constructor(private http: HttpClient) { }
 

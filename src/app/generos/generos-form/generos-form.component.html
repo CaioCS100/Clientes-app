@@ -4,6 +4,12 @@
 </ol>
 
 <form #generoForm="ngForm" (ngSubmit)="salvar()">
+
+    <div class="alert alert-danger temporario" role="alert" *ngFor="let erro of listaErros">
+        <strong>Erro ao cadastrar Gênero!</strong>
+        <p> {{ erro.mensagem }} </p>
+      </div>
+
     <div class="form-group">
         <label for="inputDescricao">Descrição</label>
         <input type="text" class="form-control" name="descricao" id="inputDescricao" 
