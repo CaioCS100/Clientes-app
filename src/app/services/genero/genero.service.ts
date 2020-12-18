@@ -8,11 +8,15 @@ import { Genero } from '../../models/genero';
 })
 export class GeneroService {
 
-  apiUrl: string = 'http://localhost:8080/gerenciar_hobbies_api_war_exploded//api/generos';
+  private readonly apiUrl: string = 'http://localhost:8080/gerenciar_hobbies_api_war_exploded//api/generos';
 
   constructor(private http: HttpClient) { }
 
   salvar(genero: Genero) : Observable<Genero> {
     return this.http.post<Genero>(this.apiUrl, genero);
+  }
+
+  listar() : Observable<Genero[]> {
+    return this.http.get<Genero[]>(this.apiUrl);
   }
 }

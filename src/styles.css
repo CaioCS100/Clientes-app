@@ -10220,3 +10220,21 @@ body {
 .btn-espacamento {
   padding: 10px 16px;
 }
+
+.btn-espacamento-tabela {
+  margin-right: 5%;
+}
+
+#linha-horizontal {
+  width: 100%;
+  border: 2px double #3c8dbc;
+}
+
+.breadcrumb {
+  background-color: #ecf0f5;
+}
+
+.breadcrumb-item {
+  padding-top: 1%;
+  font-size: 12px;
+}

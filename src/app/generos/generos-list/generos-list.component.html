@@ -1,0 +1,39 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <h1>Gêneros</h1>
+        <li class="ml-auto"></li>
+        <li class="breadcrumb-item"><a routerLink="/home"><i class="icone-home fas fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item active">Gêneros</li>
+        <div id="linha-horizontal"></div>
+    </ol>
+</nav>
+
+<div class="alert alert-danger temporario" role="alert" *ngIf="msgErro != ''">
+    <p> Ocorreu um erro ao tentar listar os Gêneros! <br/> Erro: {{ msgErro }} </p>
+</div>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col" class="centralizado">Descrição</th>
+            <th scope="col" class="centralizado">Ações</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr *ngFor="let genero of listaGeneros">
+            <td>
+                <div class="centralizado">
+                    {{ genero.descricao }}
+                </div>
+            </td>
+
+            <td class="centralizado">
+                <div class="centralizado">
+                    <button class="btn btn-light btn-outline-info btn-espacamento-tabela"> Editar </button>
+                    <button class="btn btn-light btn-outline-danger"> Excluir </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

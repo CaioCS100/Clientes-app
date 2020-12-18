@@ -6,7 +6,7 @@
 .temporario{
   position: absolute;
   top: 30%;
-  left: 40%;
+  left: 35%;
   z-index: 10;
   animation: hide 2s 2s forwards;
 }

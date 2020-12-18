@@ -8,7 +8,11 @@
     <div class="alert alert-danger temporario" role="alert" *ngFor="let erro of listaErros">
         <strong>Erro ao cadastrar Gênero!</strong>
         <p> {{ erro.mensagem }} </p>
-      </div>
+    </div>
+
+    <div class="alert alert-success temporario" role="alert" *ngIf="cadastrado">
+        <strong>Gênero Cadastrado com sucesso!</strong>
+    </div>
 
     <div class="form-group">
         <label for="inputDescricao">Descrição</label>

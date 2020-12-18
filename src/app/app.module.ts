@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ClientesModule } from './clientes/clientes.module';
 import { GenerosModule } from './generos/generos.module';
-import { from } from 'rxjs';
 
 @NgModule({
   declarations: [

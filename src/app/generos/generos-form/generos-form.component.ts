@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Erro } from 'src/app/models/erro';
 import { Genero } from '../../models/genero';
 import { GeneroService } from '../../services/genero/genero.service';
@@ -8,36 +8,48 @@ import { GeneroService } from '../../services/genero/genero.service';
   templateUrl: './generos-form.component.html',
   styleUrls: ['./generos-form.component.css']
 })
-export class GenerosFormComponent implements OnInit {
+export class GenerosFormComponent {
 
-  genero: Genero;
   listaErros: Erro[];
 
-  constructor(private generoService: GeneroService) { 
-    this.genero = new Genero;
-    this.listaErros = [];
-  }
+  genero: Genero;
 
-  ngOnInit(): void {
+  cadastrado: Boolean;
+
+  constructor(private generoService: GeneroService) { 
+    this.listaErros = [];
+    
+    this.genero = new Genero;
+
+    this.cadastrado = false;
   }
 
   salvar() {
-    let generoSalvo: Genero = new Genero();
-
     this.generoService
         .salvar(this.genero)
         .subscribe(response => {
-          generoSalvo = response;
+          this.enviarMensagemDeSucesso();
         }, errosResponse => {
           this.carregarListaErros(errosResponse.error);
         });    
   }
 
   private carregarListaErros(erros: Erro[]) : void {
+    this.cadastrado = false;
     this.listaErros = erros;
   }
 
-  private limparLista() : void {
+  private enviarMensagemDeSucesso() : void {
+    this.cadastrado = true;
+    this.limparObjetoGenero();
+  }
+
+  private limparObjetoGenero() : void {
+    this.genero = new Genero();
+    this.limparListaErros();
+  }
+
+  private limparListaErros() : void {
     this.listaErros = [];
-  } 
+  }
 }
