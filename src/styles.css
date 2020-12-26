@@ -10238,3 +10238,13 @@ body {
   padding-top: 1%;
   font-size: 12px;
 }
+
+.btn-novo {
+  margin-left: 0.8em;
+  padding-right: 1.2em !important;
+}
+
+.tabela {
+  margin-left: 1.1em;
+  margin-right: 1.2em;
+}

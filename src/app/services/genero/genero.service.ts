@@ -7,8 +7,7 @@ import { Genero } from '../../models/genero';
   providedIn: 'root'
 })
 export class GeneroService {
-
-  private readonly apiUrl: string = 'http://localhost:8080/gerenciar_hobbies_api_war_exploded//api/generos';
+  private readonly apiUrl: string = 'http://localhost:8080/gerenciarhobbies_war_exploded/api/generos';
 
   constructor(private http: HttpClient) { }
 
@@ -18,5 +17,13 @@ export class GeneroService {
 
   listar() : Observable<Genero[]> {
     return this.http.get<Genero[]>(this.apiUrl);
+  }
+
+  buscar(id: Number) : Observable<Genero> {
+    return this.http.get<Genero>(`${this.apiUrl}/${id}`);
+  }
+
+  atualizar(genero : Genero) : Observable<Genero> {
+    return this.http.put<Genero>(`${this.apiUrl}/${genero.id}`, genero);
   }
 }

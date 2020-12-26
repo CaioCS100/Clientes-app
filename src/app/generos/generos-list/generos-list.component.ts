@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Genero } from '../../models/genero';
 import { GeneroService } from '../../services/genero/genero.service';
 
@@ -9,17 +10,23 @@ import { GeneroService } from '../../services/genero/genero.service';
 })
 export class GenerosListComponent implements OnInit {
 
-  listaGeneros: Genero[];
-  msgErro: String;
+  private readonly MSG_ERRO_AO_LISTAR_GENERO = "Ocorreu um erro ao tentar listar os Gêneros! <br/> Erro:";
   
+  listaGeneros: Genero[];
 
-  constructor(private generoService: GeneroService) { 
+  msgErro: String;
+
+  constructor(private generoService: GeneroService, private router: Router) { 
     this.listaGeneros = [];
     this.msgErro = '';
   }
 
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.carregarListaGeneros();
+  }
+
+  novoGenero() : void {
+    this.router.navigate(['/generos-form']);
   }
 
   private carregarListaGeneros() : void {
@@ -28,7 +35,7 @@ export class GenerosListComponent implements OnInit {
       this.listaGeneros = response
       this.limparMsgErro();
     }, erroResponse => {
-      this.msgErro = erroResponse.message;
+      this.msgErro = this.MSG_ERRO_AO_LISTAR_GENERO + erroResponse.message;
     });
   }
 

@@ -5,6 +5,7 @@ import { GenerosListComponent } from './generos-list/generos-list.component';
 
 const routes: Routes = [
   { path: "generos-form", component: GenerosFormComponent },
+  { path: "generos-form/:id", component: GenerosFormComponent },
   { path: "generos-list", component: GenerosListComponent }
 ];
 

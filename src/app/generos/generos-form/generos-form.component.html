@@ -1,17 +1,23 @@
-<h1 class="mt-4">Gênero</h1>
-<ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Cadastro</li>
-</ol>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <h1>Gêneros</h1>
+        <li class="ml-auto"></li>
+        <li class="breadcrumb-item"><a routerLink="/home"><i class="icone-home fas fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/generos-list"> Gêneros </a></li>
+        <li class="breadcrumb-item active"> {{ genero.id == undefined ? 'Cadastrar' : 'Editar' }} </li>
+        <div id="linha-horizontal"></div>
+    </ol>
+</nav>
 
 <form #generoForm="ngForm" (ngSubmit)="salvar()">
 
     <div class="alert alert-danger temporario" role="alert" *ngFor="let erro of listaErros">
-        <strong>Erro ao cadastrar Gênero!</strong>
+        <strong> {{ msgErro }} </strong>
         <p> {{ erro.mensagem }} </p>
     </div>
 
     <div class="alert alert-success temporario" role="alert" *ngIf="cadastrado">
-        <strong>Gênero Cadastrado com sucesso!</strong>
+        <strong> {{ msgSucesso }} </strong>
     </div>
 
     <div class="form-group">
@@ -20,5 +26,7 @@
             [(ngModel)]="genero.descricao">
     </div>
 
-    <button title="submit" class="btn btn-primary btn-espacamento"><i class="fa fa-save"></i> Salvar</button>
+    <button title="submit" class="btn btn-primary btn-espacamento">
+        <i class="fa fa-save"></i> Salvar
+    </button>
 </form>
